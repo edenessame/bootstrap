@@ -14,56 +14,90 @@
 
 <body>
     <article class="container">
-        <!-- container is a class used by bootstrap to create a single centered column down the page -->
+        <!-- container is a class used by bootstrap to create a single centered column down the page 
+        within the container class you then add row classes and then col classes within the rows-->
         <!-- Callout -->
-        <section class="callout">
-            <h1>The finest whiskeys delivered to your doorstep.</h1>
-            <p class="lead">Sign up today to start receiving the world's best whiskeys every month. 
-            <!-- lead is a class used by bootstrap to match the heading style -->    
-            <s>£19.99</s> <strong><mark>First one is free!</mark></strong></p>
-            <!-- <s> strikes through, <mark> highlights -->
-            <!-- classes on the button link to bootstrap to use their style -->     
-            <p><button class="btn btn-lg btn-success">Sign Up!</button></p>
-            <p class="text-muted"><small>You must be over 18 to sign up to our service. Please drink responsibly.</small></p>
-        </section>
+        
+        <!-- row class creates a row on the screen that everything in the row is on-->
+        <div class="row">
+            
+            <!-- col class must be a child of a row class, or it will break the layout, it splits the row into columns
+            col-12 is one item full width, col-6 = 2 halves, col-4 = 3 3rds, col-3 = 3 1/4s, right multiple ones with different size screens to change on screen size
+            eg class="col-12 col-md-6 col-lg-4" means on small screen its full screen, sm screen is first, on medium screen its half screen large screens its 3rds
+            "col-12 d-md-none" = full screen on sm screens, then hidden above medium: d= display md= medium none= hide
+            d-lg-block= if you have hidden an item on a medium screen, you must use this to make it appear on a large screen, or it will stay hidden --> 
+            <div class="col-12">
+                <section class="callout">
+                    <h1>The finest whiskeys delivered to your doorstep.</h1>
+                    <p class="lead">Sign up today to start receiving the world's best whiskeys every month. 
+                    <!-- lead is a class used by bootstrap to match the heading style -->    
+                    <s>£19.99</s> <strong><mark>First one is free!</mark></strong></p>
+                    <!-- <s> strikes through, <mark> highlights -->
+                    <!-- classes on the button link to bootstrap to use their style -->     
+                    <p><button class="btn btn-lg btn-success">Sign Up!</button></p>
+                    <p class="text-muted"><small>You must be over 18 to sign up to our service. Please drink responsibly.</small></p>
+                </section>
+            </div>
+        </div>
         <!-- /.callout -->
         <hr>
 
         <!-- Quotes -->
         <section class="quotes">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="text-uppercase">Quotes:</h2>
+                </div>
+            </div>
 
-            <!-- text-uppercase does what it says -->
-            <h2 class="text-uppercase">Quotes:</h2>
             <!-- blockquote is a built in bootstrap style -->
-            <blockquote class="blockquote">
-                <p>I've been introduced to more than 10 great international whiskeys I never knew about.</p>
-                <p>- Jane Doe</p>
-            </blockquote>
-            <blockquote class="blockquote">
-                <p>I haven't been sober for months!</p>
-                <p>- Jane Doe</p>
-            </blockquote>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <blockquote class="blockquote">
+                        <p>I've been introduced to more than 10 great international whiskeys I never knew about.</p>
+                        <footer class="blockquote-footer">Jane Doe on <cite title="Twitter">Twitter</cite></footer>
+                    </blockquote>
+                </div>
+                <div class="col-12 col-md-6">
+                    <blockquote class="blockquote">
+                        <p>I haven't been sober for months!</p>
+                        <footer class="blockquote-footer">Jane Doe on <cite title="Twitter">Twitter</cite></footer>
+                    </blockquote>
+                </div>
+            </div>
         </section>
         <!-- /.quotes -->
         <hr>
 
         <!-- Features -->
         <section class="features">
-            <h2 class="text-uppercase">Features:</h2>
-            <div class="feature">
-                <h3>Feature 1</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <p><a class="btn btn-sm btn-light" href="">Read More</a></p>
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="text-uppercase">Features:</h2>
+                </div>
             </div>
-            <div class="feature">
-                <h3>Feature 2</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <p><a class="btn btn-sm btn-light" href="">Read More</a></p>
-            </div>
-            <div class="feature">
-                <h3>Feature 3</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <p><a class="btn btn-sm btn-light" href="">Read More</a></p>
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="feature">
+                        <h3>Feature 1</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p><a class="btn btn-sm btn-light" href="">Read More</a></p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="feature">
+                        <h3>Feature 2</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p><a class="btn btn-sm btn-light" href="">Read More</a></p>
+                    </div>
+                </div>
+                <div class="col-12 d-md-none d-lg-block col-lg-4">
+                    <div class="feature">
+                        <h3>Feature 3</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p><a class="btn btn-sm btn-light" href="">Read More</a></p>
+                    </div>
+                </div>
             </div>
         </section>
         <!-- /.features -->
