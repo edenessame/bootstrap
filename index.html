@@ -10,12 +10,52 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
 </head>
 
 <body>
-    <article class="container">
+    <!--Nav bar-->
+    <nav class="navbar navbar-light navbar-expand-sm bg-light">
+        <!-- "navbar" class makes it a navbar using bootstrap
+         navbars are fluid by design, so dont need containers
+         but to be fully responsive needs "navbar-expand-sm" class
+         fixed-top sticks it at the top and always visable while scrolling, but not appropriate for mobiles 
+
+         *not important* "navbar-light" gives it a light theme "bg-light" gives it a light background-->
+        <a href="/" class="navbar-brand">
+                    Whiskey Drop</a>
+                    <!-- "navbar-brand" for the company name -->
+        <ul class="navbar-nav mr-auto">
+            <!-- "navbar-nav" for a full-height and lightweight navigation (including support for dropdowns)
+             "mr-auto" to push the content to the left -->
+            <li class="active nav-item mr-2"><a class="nav-link" href="/">Home</a></li>
+            <!-- "active" highlights the link "mr-2" gives a little bit of right spacing -->
+            <li class="nav-item mr-2"><a class="nav-link" href="">About</a></li>
+            <li class="nav-item mr-2 d-block d-sm-none"><a class="nav-link" href="">Sign In / Sign Up</a></li>
+            <!-- only shows this on mobile, then swaps with the one beneath-->
+        </ul>
+
+        <div class="d-none d-md-block">
+            <!-- hides this on mobile because it looks weird, only appears on medium -->
+            <p class="navbar-text my-auto mr-2"><i>Great whiskey delivered to your door</i></p>
+            <a href="/login">Sign In / Sign Up</a>
+        </div>
+        <!--</div>-->
+    </nav>
+
+    <article class="container mt-3">
         <!-- container is a class used by bootstrap to create a single centered column down the page 
-        within the container class you then add row classes and then col classes within the rows-->
+        within the container class you then add row classes and then col classes within the rows
+        mt-3 gives margin top to push the content down a bit-->
+        <div class="row d-none d-sm-block">
+            <div class="col-12">
+                <div class="alert alert-warning">
+                    <strong>Sale Now On!</strong> We've got a sale on. Get a 12 month subscription for the price of 6! <a href="">See here for more details</a>
+                </div>
+            </div>
+        </div>
         <!-- Callout -->
         
         <!-- row class creates a row on the screen that everything in the row is on-->
@@ -27,12 +67,18 @@
             "col-12 d-md-none" = full screen on sm screens, then hidden above medium: d= display md= medium none= hide
             d-lg-block= if you have hidden an item on a medium screen, you must use this to make it appear on a large screen, or it will stay hidden --> 
             <div class="col-12">
-                <section class="callout">
+                <section class="callout jumbotron text-center">
                     <h1>The finest whiskeys delivered to your doorstep.</h1>
+                    <!-- lead is a class used by bootstrap to match the heading style --> 
                     <p class="lead">Sign up today to start receiving the world's best whiskeys every month. 
-                    <!-- lead is a class used by bootstrap to match the heading style -->    
-                    <s>£19.99</s> <strong><mark>First one is free!</mark></strong></p>
-                    <!-- <s> strikes through, <mark> highlights -->
+                    
+                    <!-- <s> strikes through, <mark> highlights 
+                    "d-none d-sm-inline" hides this on mobile    -->   
+                        <s class="d-none d-sm-inline">£19.99</s>
+                        <span class="d-inline d-sm-none"><br></span>   
+                        <strong><mark>First one is free!</mark></strong></p>
+                    <!-- "d-inline d-sm-none" shows this on mobile and hides above small-->
+                     
                     <!-- classes on the button link to bootstrap to use their style -->     
                     <p><button class="btn btn-lg btn-success">Sign Up!</button></p>
                     <p class="text-muted"><small>You must be over 18 to sign up to our service. Please drink responsibly.</small></p>
@@ -45,7 +91,7 @@
         <!-- Quotes -->
         <section class="quotes">
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 my-5">
                     <h2 class="text-uppercase">Quotes:</h2>
                 </div>
             </div>
@@ -53,16 +99,34 @@
             <!-- blockquote is a built in bootstrap style -->
             <div class="row">
                 <div class="col-12 col-md-6">
-                    <blockquote class="blockquote">
-                        <p>I've been introduced to more than 10 great international whiskeys I never knew about.</p>
-                        <footer class="blockquote-footer">Jane Doe on <cite title="Twitter">Twitter</cite></footer>
-                    </blockquote>
+                    <div class="media">
+                        <!-- "media" div to wrap media like images  -->
+                        <div class="d-none d-sm-block">
+                            <img src="images/girl-image.png" class="rounded-circle mr-3" height=100 width=100>
+                        </div>
+                        <div class="media-body">
+                        <!-- "media-body" info about the image -->    
+                            <blockquote class="blockquote">
+                                <p>I've been introduced to more than 10 great international whiskeys I never knew about.</p>
+                                <footer class="blockquote-footer">Jane Doe on <cite title="Twitter">Twitter</cite></footer>
+                            </blockquote>
+                        </div>
+                    </div>    
                 </div>
                 <div class="col-12 col-md-6">
-                    <blockquote class="blockquote">
-                        <p>I haven't been sober for months!</p>
-                        <footer class="blockquote-footer">Jane Doe on <cite title="Twitter">Twitter</cite></footer>
-                    </blockquote>
+                    <div class="media">
+                        <!-- "media" div to wrap media like images  -->
+                        <div class="d-none d-sm-block">
+                            <img src="images/guy-image.png" class="rounded-circle mr-3" height=100 width=100>
+                        </div>
+                        <div class="media-body">
+                        <!-- "media-body" info about the image -->
+                            <blockquote class="blockquote">
+                                <p>I haven't been sober for months!</p>
+                                <footer class="blockquote-footer">Jane Doe on <cite title="Twitter">Twitter</cite></footer>
+                            </blockquote>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -72,28 +136,28 @@
         <!-- Features -->
         <section class="features">
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 my-5">
                     <h2 class="text-uppercase">Features:</h2>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="feature">
-                        <h3>Feature 1</h3>
+                        <h3><i class="fas fa-gift d-none d-sm-inline"></i> Feature 1 <span class="badge badge-success">New!</span></h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                         <p><a class="btn btn-sm btn-light" href="">Read More</a></p>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="feature">
-                        <h3>Feature 2</h3>
+                        <h3><i class="fas fa-credit-card d-none d-sm-inline"></i> Feature 2</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                         <p><a class="btn btn-sm btn-light" href="">Read More</a></p>
                     </div>
                 </div>
                 <div class="col-12 d-md-none d-lg-block col-lg-4">
                     <div class="feature">
-                        <h3>Feature 3</h3>
+                        <h3><i class="fas fa-times-circle d-none d-sm-inline"></i> Feature 3</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                         <p><a class="btn btn-sm btn-light" href="">Read More</a></p>
                     </div>
