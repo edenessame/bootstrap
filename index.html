@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Whiskey Drop | Taste a new whiskey every month</title>
 
-    <!-- link to bootstrap -->
+    <!-- link to bootstrap css, always need for bootstrap to work-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     
     <!-- Fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+    <!-- css file we want our style sheet to be the last one loaded -->
+     <link rel="stylesheet" href="css/style.css" type="text/css">
 
 </head>
 
@@ -27,15 +29,40 @@
         <a href="/" class="navbar-brand">
                     Whiskey Drop</a>
                     <!-- "navbar-brand" for the company name -->
-        <ul class="navbar-nav mr-auto">
-            <!-- "navbar-nav" for a full-height and lightweight navigation (including support for dropdowns)
-             "mr-auto" to push the content to the left -->
-            <li class="active nav-item mr-2"><a class="nav-link" href="/">Home</a></li>
-            <!-- "active" highlights the link "mr-2" gives a little bit of right spacing -->
-            <li class="nav-item mr-2"><a class="nav-link" href="">About</a></li>
-            <li class="nav-item mr-2 d-block d-sm-none"><a class="nav-link" href="">Sign In / Sign Up</a></li>
-            <!-- only shows this on mobile, then swaps with the one beneath-->
-        </ul>
+
+        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <!-- creates the navbar toggle data-target gives the id of the element
+        its the same as the div element below "navbarNavDropdown" so bootstrap knows its the target of the button
+        data-toggle="collapse" is the same class as the div *-"collapse" -->
+        <span class="navbar-toggler-icon"></span></button> 
+        <!--creates the 3 bar icon for the button -->  
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <!-- linked to the button above to create a dropdown navbar -->
+
+            <ul class="navbar-nav mr-auto">
+                <!-- "navbar-nav" for a full-height and lightweight navigation (including support for dropdowns)
+                "mr-auto" to push the content to the left -->
+                <li class="active nav-item mr-2"><a class="nav-link" href="/">Home</a></li>
+                <!-- "active" highlights the link "mr-2" gives a little bit of right spacing -->
+                <li class="nav-item mr-2"><a class="nav-link" href="">About</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Whiskeys
+        </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Irish</a>
+                        <a class="dropdown-item" href="#">Scotch</a>
+                        <a class="dropdown-item" href="#">Japanese</a>
+                        <a class="dropdown-item" href="#">American</a>
+                    </div>
+                </li>
+                <!-- adds another dropdown toggle, within the navbar -->
+
+                <li class="nav-item mr-2 d-block d-sm-none"><a class="nav-link" href="">Sign In / Sign Up</a></li>
+                <!-- only shows this on mobile, then swaps with the one beneath-->
+            </ul>
+        </div>
 
         <div class="d-none d-md-block">
             <!-- hides this on mobile because it looks weird, only appears on medium -->
@@ -80,7 +107,7 @@
                     <!-- "d-inline d-sm-none" shows this on mobile and hides above small-->
                      
                     <!-- classes on the button link to bootstrap to use their style -->     
-                    <p><button class="btn btn-lg btn-success">Sign Up!</button></p>
+                    <p><button class="btn btn-lg btn-success" data-toggle="modal" data-target="#signUpModal">Sign Up!</button></p>
                     <p class="text-muted"><small>You must be over 18 to sign up to our service. Please drink responsibly.</small></p>
                 </section>
             </div>
@@ -166,5 +193,48 @@
         </section>
         <!-- /.features -->
     </article>
+
+    <!-- modal overlay- code found on bootstrap
+     prevents the user having to leave the page when they click on sign up
+     it contains a header, body and footer- in effect it is an island of content in the middle of the page
+     its hidden by default, so needs to be linked with an id to the signup button
+     so when its clicked the modal is launched and it knows what modal to launch if there are more than 1
+     the sign up button also needs data-toggle="modal" this tells it to trigger a modal
+     and data-target="#signUpModal" this tells it to link specifically to the modal with the same id-->
+    <div class="modal" tabindex="-1" role="dialog" id="signUpModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sign Up To Whiskey Drop!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <label for="repeatPassword">Repeat Password</label>
+                            <input type="password" class="form-control" id="repeatPassword" placeholder="Repeat Password">
+                        </div>
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- bootstrap js links always need for bootstrap at the bottom, so they load last css at top-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
